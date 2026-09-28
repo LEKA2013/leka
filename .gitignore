@@ -1,0 +1,51 @@
+# Dados brutos e processados (não versionar)
+data/raw/**
+data/processed/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/masks/.gitkeep
+!data/masks/README.md
+
+# Máscaras/shapefiles fornecidos localmente (manter só o README)
+data/masks/**
+!data/masks/.gitkeep
+!data/masks/README.md
+
+# Ambientes Python
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDEs / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Saídas locais de figuras / logs
+outputs/
+figures/
+*.log

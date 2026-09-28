@@ -1,0 +1,32 @@
+# Exemplo de configuração de caminhos de dados.
+# Copie para paths.yaml (gitignore local opcional) ou use variáveis de ambiente.
+# Precedência: variável de ambiente > este arquivo > padrão UNC.
+
+era5:
+  # Padrão institucional (Windows UNC). Override: CENSIPAM_ERA5_ROOT
+  root: "\\\\files-be\\NCEP\\era5"
+  env_var: CENSIPAM_ERA5_ROOT
+
+merge:
+  # Path institucional ainda não documentado — preencher na máquina CENSIPAM.
+  # Override: CENSIPAM_MERGE_ROOT
+  root: null
+  env_var: CENSIPAM_MERGE_ROOT
+  note: "TBD — confirmar caminho MERGE com a equipe"
+
+masks:
+  # Não inventar geometria. Coloque o shapefile/GeoJSON oficial em data/masks/
+  # Override: CENSIPAM_AMAZONIA_LEGAL_MASK
+  amazonia_legal: null
+  env_var: CENSIPAM_AMAZONIA_LEGAL_MASK
+
+climatology:
+  precip_reference_period:
+    start: 2001
+    end: 2020
+
+domain:
+  name: Amazônia Legal
+  # Bounding box opcional (somente para exploração grosseira; máscara oficial é a fonte da verdade)
+  # lon_min / lon_max / lat_min / lat_max — preencher se útil, sem substituir a máscara
+  bbox: null
