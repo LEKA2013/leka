@@ -14,8 +14,9 @@ from typing import Any
 
 import yaml
 
-# Padrão institucional informado pela equipe (Windows UNC).
+# Padrões institucionais informados pela equipe (máquina CENSIPAM).
 DEFAULT_ERA5_ROOT = r"\\files-be\NCEP\era5"
+DEFAULT_MERGE_ROOT = r"S:\Leticia\dados_INPE\MERGE_NC"
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG_CANDIDATES = (
@@ -99,7 +100,12 @@ def load_paths(config_path: Path | None = None) -> DataPaths:
     if era5_root is None:
         era5_root = Path(DEFAULT_ERA5_ROOT)
 
-    merge_root = _as_path(os.environ.get(merge_env)) or _as_path(merge_cfg.get("root"))
+    merge_root = _as_path(os.environ.get(merge_env)) or _as_path(
+        merge_cfg.get("root", DEFAULT_MERGE_ROOT)
+    )
+    if merge_root is None:
+        merge_root = Path(DEFAULT_MERGE_ROOT)
+
     mask_path = _as_path(os.environ.get(mask_env)) or _as_path(
         masks_cfg.get("amazonia_legal")
     )

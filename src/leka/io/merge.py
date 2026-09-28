@@ -1,7 +1,8 @@
 """Stubs de leitura MERGE (precipitação).
 
-A string de produto/versão MERGE e o path institucional ainda estão em aberto.
-Não inventar nomes de arquivo nem catálogo.
+Path padrão documentado: ``S:\\Leticia\\dados_INPE\\MERGE_NC`` (dados diários).
+Override: ``CENSIPAM_MERGE_ROOT``. Padrões de nome de arquivo ainda a inventariar
+localmente — não inventar catálogo aqui.
 """
 
 from __future__ import annotations
@@ -30,7 +31,8 @@ def list_merge_candidates(
     if root is None:
         raise DataUnavailableError(
             "Path MERGE não configurado. Defina CENSIPAM_MERGE_ROOT ou "
-            "preencha merge.root em configs/paths.yaml (ainda TBD)."
+            "preencha merge.root em configs/paths.yaml "
+            r"(padrão: S:\Leticia\dados_INPE\MERGE_NC)."
         )
     if not path_exists(root):
         raise DataUnavailableError(

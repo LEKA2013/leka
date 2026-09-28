@@ -11,7 +11,7 @@ Documento vivo da **Fase 0**. Registra o que a equipe já definiu e o que ainda 
 | Fonte | Path padrão / status | Override (env) |
 |-------|----------------------|----------------|
 | ERA5 / dados climáticos da equipe | `\\files-be\NCEP\era5` (Windows UNC) | `CENSIPAM_ERA5_ROOT` |
-| MERGE (precipitação) | **TBD** — path institucional ainda não documentado | `CENSIPAM_MERGE_ROOT` |
+| MERGE (precipitação) | `S:\Leticia\dados_INPE\MERGE_NC` (informado pela usuária; dados diários) | `CENSIPAM_MERGE_ROOT` |
 | Máscara Amazônia Legal | **TBD** — shapefile/GeoJSON a fornecer (sem geometria inventada no repo) | `CENSIPAM_AMAZONIA_LEGAL_MASK` |
 
 Em Linux/WSL ou cópia autorizada, remapeie via variáveis de ambiente (ver `.env.example` e `configs/paths.example.yaml`).
@@ -36,21 +36,23 @@ Bounding box opcional pode ser anotado abaixo só para exploração grosseira �
 | Item | Valor |
 |------|--------|
 | Papel | Única fonte de precipitação neste ciclo (não usar precip ERA5) |
-| Frequência alvo | Diária (a confirmar nos arquivos) |
+| Frequência | **Diária** (confirmado pela usuária) |
 | Climatologia de referência | **2001–2020** |
 | String de produto / versão | **Em aberto** — anotar quando confirmada |
-| Path | Ver §1 (`CENSIPAM_MERGE_ROOT`) |
+| Path | `S:\Leticia\dados_INPE\MERGE_NC` (`CENSIPAM_MERGE_ROOT`) |
+| Formato sugerido pelo nome da pasta | NetCDF (`.nc`) — confirmar nos arquivos |
 
 ### Checklist MERGE (preencher na rede CENSIPAM)
 
-- [ ] Path completo confirmado
+- [x] Path completo confirmado — `S:\Leticia\dados_INPE\MERGE_NC`
+- [x] Frequência — diária
 - [ ] Nome/versão do produto (string)
-- [ ] Extensão / formato (NetCDF, GRIB, outro)
+- [ ] Extensão / formato confirmado nos arquivos (pasta sugere NetCDF)
 - [ ] Padrão de nome de arquivo (ex.: prefixo, data `YYYYMMDD`, grade)
 - [ ] Resolução espacial e grade
 - [ ] Período disponível no compartilhamento
 - [ ] Arquivo(s) da climatologia 2001–2020 (ou se é calculada no pipeline)
-- [ ] Exemplo de path relativo a um arquivo de um dia: ________
+- [ ] Exemplo de path de **um** arquivo de um dia (copie o nome completo): ________
 
 ---
 
@@ -103,7 +105,7 @@ Não inventar entradas acima. Deixar em branco até inspeção local.
 
 ## 7. Próximos passos (máquina CENSIPAM)
 
-1. Exportar `CENSIPAM_ERA5_ROOT` (e `CENSIPAM_MERGE_ROOT` quando conhecido).
+1. Exportar `CENSIPAM_ERA5_ROOT` e `CENSIPAM_MERGE_ROOT=S:\Leticia\dados_INPE\MERGE_NC`.
 2. Copiar/apontar a máscara Amazônia Legal e definir `CENSIPAM_AMAZONIA_LEGAL_MASK`.
-3. Preencher os checklists deste arquivo com padrões de nome reais.
+3. Abrir a pasta MERGE no Explorer, copiar o nome de **um** arquivo `.nc` de um dia e colar no checklist acima.
 4. Rodar `python scripts/check_paths.py` e o notebook `notebooks/00_exploracao_dominio.ipynb`.

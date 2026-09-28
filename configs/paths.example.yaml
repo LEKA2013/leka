@@ -8,11 +8,10 @@ era5:
   env_var: CENSIPAM_ERA5_ROOT
 
 merge:
-  # Path institucional ainda não documentado — preencher na máquina CENSIPAM.
-  # Override: CENSIPAM_MERGE_ROOT
-  root: null
+  # Path informado pela usuária (máquina CENSIPAM / drive S:). Override: CENSIPAM_MERGE_ROOT
+  root: "S:\\Leticia\\dados_INPE\\MERGE_NC"
   env_var: CENSIPAM_MERGE_ROOT
-  note: "TBD — confirmar caminho MERGE com a equipe"
+  note: "Dados diários MERGE em NetCDF (pasta MERGE_NC); padrões de nome a inventariar localmente"
 
 masks:
   # Não inventar geometria. Coloque o shapefile/GeoJSON oficial em data/masks/

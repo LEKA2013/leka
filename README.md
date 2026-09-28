@@ -50,14 +50,14 @@ Dependências principais: `xarray`, `netCDF4` / `h5netcdf`, `cfgrib`, `numpy`, `
 | Recurso | Padrão | Variável de ambiente |
 |---------|--------|----------------------|
 | ERA5 / clima institucional | `\\files-be\NCEP\era5` | `CENSIPAM_ERA5_ROOT` |
-| MERGE (precip) | ainda TBD | `CENSIPAM_MERGE_ROOT` |
+| MERGE (precip, diário) | `S:\Leticia\dados_INPE\MERGE_NC` | `CENSIPAM_MERGE_ROOT` |
 | Máscara Amazônia Legal | a fornecer em `data/masks/` | `CENSIPAM_AMAZONIA_LEGAL_MASK` |
 
-O cloud agent **não** lê o UNC. Em máquina CENSIPAM (Windows):
+O cloud agent **não** lê esses paths de rede. Em máquina CENSIPAM (Windows):
 
 ```powershell
 $env:CENSIPAM_ERA5_ROOT = "\\files-be\NCEP\era5"
-# $env:CENSIPAM_MERGE_ROOT = "<path MERGE quando conhecido>"
+$env:CENSIPAM_MERGE_ROOT = "S:\Leticia\dados_INPE\MERGE_NC"
 # $env:CENSIPAM_AMAZONIA_LEGAL_MASK = "C:\caminho\para\mascara.shp"
 ```
 
